@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm code.html)",
+      "Bash(npm init:*)",
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(taskkill /F /IM node.exe)",
+      "Read(//tmp/**)",
+      "Bash(playwright-cli open:*)",
+      "Bash(playwright-cli mousewheel:*)",
+      "Bash(playwright-cli screenshot:*)",
+      "Bash(playwright-cli keydown:*)",
+      "Bash(playwright-cli close:*)",
+      "Bash(playwright-cli goto:*)",
+      "Bash(playwright-cli resize:*)",
+      "Bash(playwright-cli reload:*)",
+      "Skill(playwright-cli)",
+      "Skill(playwright-cli:*)",
+      "Bash(mkdir -p c:/Users/vmmlp/OneDrive/Escritorio/stitchtuto/lib)",
+      "Bash(mkdir -p c:/Users/vmmlp/OneDrive/Escritorio/stitchtuto/app/components/ui)"
+    ]
+  }
+}
