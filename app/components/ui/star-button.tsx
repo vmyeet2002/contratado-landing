@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, ReactNode, CSSProperties } from 'react';
+import { useRef, useEffect, ReactNode, CSSProperties } from 'react';
 import { cn } from '@/lib/utils';
 
 interface StarBackgroundProps {
