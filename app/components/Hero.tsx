@@ -3,6 +3,26 @@
 import { motion } from 'framer-motion';
 import { StarButton } from './ui/star-button';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
 export default function Hero() {
   return (
     <section style={{
@@ -15,118 +35,118 @@ export default function Hero() {
       alignItems: 'center',
       overflow: 'hidden',
       backgroundColor: '#0e0e0e',
-      paddingTop: '80px',
+      paddingTop: '100px',
       paddingBottom: '80px'
     }}>
-      {/* Background glow */}
+      {/* Refined background */}
       <div style={{
         position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '800px',
-        height: '800px',
-        background: 'radial-gradient(circle, rgba(255, 144, 98, 0.15) 0%, rgba(255, 144, 98, 0) 70%)',
-        filter: 'blur(80px)',
-        zIndex: 0
+        top: '0',
+        left: '0',
+        right: '0',
+        bottom: '0',
+        background: 'linear-gradient(to bottom, rgba(255, 144, 98, 0.03) 0%, rgba(14, 14, 14, 0) 40%)',
+        zIndex: 0,
+        pointerEvents: 'none'
       }} />
 
       {/* Content container */}
-      <div style={{
-        position: 'relative',
-        zIndex: 10,
-        width: '100%',
-        maxWidth: '1200px',
-        padding: '0 40px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center'
-      }}>
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        style={{
+          position: 'relative',
+          zIndex: 10,
+          width: '100%',
+          maxWidth: '900px',
+          paddingLeft: '24px',
+          paddingRight: '24px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center'
+        }}
+      >
+        {/* Eyebrow text */}
+        <motion.span
+          variants={itemVariants}
           style={{
-            display: 'inline-block',
-            padding: '8px 16px',
-            borderRadius: '9999px',
-            backgroundColor: 'rgba(255, 144, 98, 0.1)',
-            border: '1px solid rgba(255, 144, 98, 0.2)',
-            marginBottom: '2rem'
+            fontSize: '12px',
+            fontWeight: 500,
+            color: '#ff9062',
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            fontFamily: 'IBM Plex Mono, monospace',
+            marginBottom: '20px',
+            lineHeight: '1'
           }}
         >
-          <span style={{ color: '#ff9062', fontSize: '12px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-            De Candidato Invisible a Candidato Contratable
-          </span>
-        </motion.div>
+          El Sistema para Candidatos Data
+        </motion.span>
 
-        {/* Main heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
+        {/* Main heading - Instrument Serif for distinctive editorial feel */}
+        <motion.h1
+          variants={itemVariants}
           style={{
-            fontSize: '100px',
-            fontWeight: 900,
-            lineHeight: 1.1,
-            letterSpacing: '-0.015em',
+            fontSize: 'clamp(48px, 8vw, 88px)',
+            fontFamily: "'Instrument Serif', Georgia, serif",
+            fontWeight: 400,
+            lineHeight: '1.15',
+            letterSpacing: '-0.01em',
             color: '#ffffff',
-            margin: '0 0 2rem 0',
-            padding: '0'
+            marginBottom: '24px',
+            marginTop: '0'
           }}
         >
-          MÁS DE 5.000<br />
-          EMPLEOS DATA<br />
-          <span style={{ color: '#ff9062' }}>SIN CUBRIR EN ESPAÑA</span>
-        </motion.h2>
+          Más de 5.000 empleos data
+          <br />
+          <span style={{ color: '#ff9062' }}>sin cubrir en España</span>
+        </motion.h1>
 
-        {/* Description */}
+        {/* Subheading */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          variants={itemVariants}
           style={{
-            fontSize: '18px',
-            color: '#adaaaa',
-            lineHeight: 1.6,
-            maxWidth: '700px',
-            margin: '0 0 3rem 0',
-            padding: '0'
+            fontSize: '16px',
+            fontWeight: 400,
+            color: '#d0cdcd',
+            lineHeight: '1.7',
+            maxWidth: '620px',
+            marginBottom: '40px',
+            marginTop: '0'
           }}
         >
           Pero la mayoría de candidatos no recibe ni una llamada. Descubre el sistema que puede llevarte de candidato invisible a profesional deseado en 45 días.
         </motion.p>
 
-        {/* Buttons */}
+        {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          variants={itemVariants}
           style={{
             display: 'flex',
             gap: '16px',
             justifyContent: 'center',
-            flexWrap: 'wrap'
+            flexWrap: 'wrap',
+            width: '100%'
           }}
         >
           <StarButton
             lightColor="#ff9062"
             backgroundColor="#fe5f00"
-            className="px-8 py-4 text-base font-bold uppercase tracking-wider"
+            className="px-8 py-3 text-sm font-semibold uppercase tracking-wider"
           >
-            Acceder al Sistema CONTRATADO
+            Acceder al Sistema
           </StarButton>
           <StarButton
             lightColor="#adaaaa"
-            backgroundColor="#262626"
-            className="px-8 py-4 text-base font-semibold uppercase tracking-wider border border-gray-700"
+            backgroundColor="#1a1919"
+            className="px-8 py-3 text-sm font-semibold uppercase tracking-wider subtle-border"
           >
             Ver Casos de Éxito
           </StarButton>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

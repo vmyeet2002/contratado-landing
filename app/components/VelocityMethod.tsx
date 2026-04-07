@@ -3,15 +3,35 @@
 import { motion } from 'framer-motion';
 
 const modules = [
-  { number: 1, title: 'Crear Tu Marca Personal', description: 'Diferenciación y posicionamiento que te coloque en la lista corta' },
-  { number: 2, title: 'Presencia Online Estratégica', description: 'LinkedIn, YouTube, Medium: cómo construir autoridad sin quemarte' },
-  { number: 3, title: 'Define Tu Trabajo Ideal', description: 'Elegir tu destino con precisión quirúrgica, no solo aceptar lo que hay' },
-  { number: 4, title: 'Encuentra Empleos Ocultos', description: 'Las 4 fuentes secretas donde está el 80% de los mejores trabajos' },
-  { number: 5, title: 'Portfolio WOW', description: 'Convertir proyectos técnicos en casos de negocio que impresionen' },
-  { number: 6, title: 'CV Irresistible', description: 'Superar ATS y convertir tu experiencia en una historia imposible de ignorar' },
-  { number: 7, title: 'Domina El Proceso', description: 'Qué hacer, qué decir, cómo superar cada tipo de entrevista' },
-  { number: 8, title: 'Negocia Tu Oferta', description: 'Frameworks psicológicos para cerrar ofertas que premien tu valor real' },
+  { number: 1, title: 'Marca Personal', description: 'Diferenciación que te coloque en la lista corta' },
+  { number: 2, title: 'Presencia Online', description: 'LinkedIn, YouTube, Medium: autoridad sin quemarte' },
+  { number: 3, title: 'Tu Trabajo Ideal', description: 'Elegir destino con precisión, no solo aceptar' },
+  { number: 4, title: 'Empleos Ocultos', description: 'Las 4 fuentes donde está el 80% de los mejores' },
+  { number: 5, title: 'Portfolio WOW', description: 'Proyectos técnicos en casos de negocio' },
+  { number: 6, title: 'CV Irresistible', description: 'Superar ATS y contar tu historia' },
+  { number: 7, title: 'Domina Proceso', description: 'Qué hacer, qué decir en entrevistas' },
+  { number: 8, title: 'Negocia Oferta', description: 'Cerrar ofertas que premien tu valor real' },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4 },
+  },
+};
 
 export default function VelocityMethod() {
   return (
@@ -21,81 +41,131 @@ export default function VelocityMethod() {
       width: '100%'
     }}>
       <div style={{
-        maxWidth: '1200px',
+        maxWidth: '1100px',
         margin: '0 auto'
       }}>
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           style={{
-            fontSize: '44px',
-            fontWeight: 700,
-            color: '#ffffff',
-            marginBottom: '80px',
-            textAlign: 'center',
-            textTransform: 'uppercase',
-            letterSpacing: '-0.01em'
+            marginBottom: '60px',
+            textAlign: 'center'
           }}
         >
-          Los 8 Módulos Del Sistema CONTRATADO
-        </motion.h2>
+          <h2 style={{
+            fontSize: 'clamp(32px, 5vw, 48px)',
+            fontFamily: "'Instrument Serif', Georgia, serif",
+            fontWeight: 400,
+            color: '#ffffff',
+            letterSpacing: '-0.01em',
+            lineHeight: '1.2',
+            marginBottom: '0'
+          }}>
+            Los 8 Módulos
+          </h2>
+          <p style={{
+            fontSize: '12px',
+            color: '#ff9062',
+            fontWeight: 500,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            fontFamily: 'IBM Plex Mono, monospace',
+            marginTop: '12px'
+          }}>
+            Del Sistema CONTRATADO
+          </p>
+        </motion.div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '24px'
-        }}>
-          {modules.map((module, index) => (
+        {/* Modules grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '16px'
+          }}
+        >
+          {modules.map((module) => (
             <motion.div
               key={module.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
+              variants={itemVariants}
+              whileHover={{
+                y: -3,
+                transition: { duration: 0.3, ease: 'easeOut' }
+              }}
               style={{
                 padding: '24px',
-                backgroundColor: '#1a1919',
-                border: '1px solid rgba(255, 144, 98, 0.2)',
-                borderRadius: '16px',
-                textAlign: 'center',
-                cursor: 'pointer'
+                backgroundColor: 'rgba(26, 25, 25, 0.3)',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                borderRadius: '8px',
+                position: 'relative',
+                overflow: 'hidden',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(26, 25, 25, 0.6)';
+                e.currentTarget.style.borderColor = 'rgba(255, 144, 98, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(26, 25, 25, 0.3)';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.05)';
               }}
             >
+              {/* Module number */}
               <div style={{
-                width: '50px',
-                height: '50px',
-                margin: '0 auto 16px',
-                borderRadius: '8px',
+                display: 'inline-flex',
+                width: '32px',
+                height: '32px',
+                marginBottom: '16px',
+                borderRadius: '6px',
                 backgroundColor: '#ff9062',
-                display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '24px',
-                fontWeight: 900,
-                color: '#ffffff'
-              }}>
-                {module.number}
-              </div>
-              <h3 style={{
-                fontSize: '16px',
+                fontSize: '14px',
                 fontWeight: 700,
                 color: '#ffffff',
-                marginBottom: '8px'
+                fontFamily: 'IBM Plex Mono, monospace'
+              }}>
+                {String(module.number).padStart(2, '0')}
+              </div>
+
+              {/* Module title */}
+              <h3 style={{
+                fontSize: '15px',
+                fontFamily: "'Instrument Serif', Georgia, serif",
+                fontWeight: 400,
+                color: '#ffffff',
+                marginBottom: '10px',
+                marginTop: '0',
+                lineHeight: '1.3',
+                letterSpacing: '-0.005em'
               }}>
                 {module.title}
               </h3>
+
+              {/* Module description */}
               <p style={{
                 fontSize: '12px',
                 color: '#adaaaa',
-                lineHeight: 1.5
+                lineHeight: 1.6,
+                marginBottom: '0',
+                marginTop: 'auto',
+                fontWeight: 400
               }}>
                 {module.description}
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

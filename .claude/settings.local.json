@@ -19,7 +19,18 @@
       "Skill(playwright-cli)",
       "Skill(playwright-cli:*)",
       "Bash(mkdir -p c:/Users/vmmlp/OneDrive/Escritorio/stitchtuto/lib)",
-      "Bash(mkdir -p c:/Users/vmmlp/OneDrive/Escritorio/stitchtuto/app/components/ui)"
+      "Bash(mkdir -p c:/Users/vmmlp/OneDrive/Escritorio/stitchtuto/app/components/ui)",
+      "Bash(gh repo:*)",
+      "Bash(curl -s -X POST -H 'Authorization: token github_pat_11BQE5XXI0Pfh8ByfeYT7e_WoD0LcyQQTQqWuUV62x8kbe69jfcAUaPy4ggVST1Qm37LWQ5PPUXifDB05' -H 'Accept: application/vnd.github.v3+json' https://api.github.com/user/repos -d '{:*)",
+      "Bash(curl -s -H 'Authorization: token github_pat_11BQE5XXI0Pfh8ByfeYT7e_WoD0LcyQQTQqWuUV62x8kbe69jfcAUaPy4ggVST1Qm37LWQ5PPUXifDB05' -H 'Accept: application/vnd.github.v3+json' https://api.github.com/repos/prueba1234/contratado-landing)",
+      "Bash(curl -X POST -H 'Authorization: token github_pat_11BQE5XXI0Pfh8ByfeYT7e_WoD0LcyQQTQqWuUV62x8kbe69jfcAUaPy4ggVST1Qm37LWQ5PPUXifDB05' -H 'Accept: application/vnd.github.v3+json' https://api.github.com/user/repos -d '{\"name\":\"contratado-landing\",\"description\":\"Premium landing page for CONTRATADO\",\"private\":false}')",
+      "Bash(git restore:*)",
+      "Bash(curl -X POST https://api.github.com/user/repos -H 'Authorization: token github_pat_11BQE5XXI0Pfh8ByfeYT7e_WoD0LcyQQTQqWuUV62x8kbe69jfcAUaPy4ggVST1Qm37LWQ5PPUXifDB05' -H 'Accept: application/vnd.github.v3+json' -d '{:*)",
+      "Bash(git remote:*)",
+      "Bash(git push:*)",
+      "Bash(vercel deploy:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }

@@ -11,51 +11,51 @@ export default function FinalCTA() {
       width: '100%'
     }}>
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
         style={{
-          maxWidth: '900px',
+          maxWidth: '840px',
           margin: '0 auto',
-          padding: '60px 48px',
-          borderRadius: '16px',
-          backgroundColor: '#1a1919',
-          border: '1px solid rgba(73, 72, 71, 0.15)',
+          padding: '64px 48px',
+          borderRadius: '12px',
+          backgroundColor: 'rgba(26, 25, 25, 0.4)',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
           textAlign: 'center',
           position: 'relative',
-          overflow: 'hidden',
-          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)'
+          overflow: 'hidden'
         }}
       >
-        {/* Top gradient line */}
+        {/* Subtle top accent */}
         <div style={{
           position: 'absolute',
           top: 0,
-          left: 0,
-          right: 0,
+          left: '10%',
+          right: '10%',
           height: '1px',
-          background: 'linear-gradient(90deg, transparent, #ff9062, transparent)',
-          opacity: 0.7
+          background: 'linear-gradient(90deg, transparent, rgba(255, 144, 98, 0.3), transparent)',
+          pointerEvents: 'none'
         }} />
 
         <h2 style={{
-          fontSize: '48px',
-          fontWeight: 900,
+          fontSize: 'clamp(36px, 6vw, 52px)',
+          fontFamily: "'Instrument Serif', Georgia, serif",
+          fontWeight: 400,
           color: '#ffffff',
-          marginBottom: '24px',
-          textTransform: 'uppercase',
+          marginBottom: '20px',
           letterSpacing: '-0.01em',
-          lineHeight: 1.2
+          lineHeight: 1.25
         }}>
-          ¿Listo Para Cambiar de Trabajo?
+          ¿Listo para cambiar de trabajo?
         </h2>
 
         <p style={{
-          fontSize: '18px',
-          color: '#adaaaa',
+          fontSize: '15px',
+          color: '#d0cdcd',
           marginBottom: '40px',
           lineHeight: 1.8,
-          maxWidth: '700px',
+          maxWidth: '640px',
           margin: '0 auto 40px'
         }}>
           El siguiente nivel de tu carrera requiere un nuevo nivel de conocimiento. Accede al Sistema CONTRATADO hoy y cambia tu futuro profesional en 45 días.
@@ -64,9 +64,9 @@ export default function FinalCTA() {
         <StarButton
           lightColor="#ff9062"
           backgroundColor="#fe5f00"
-          className="px-12 py-4 text-base font-bold uppercase tracking-wider"
+          className="px-10 py-3 text-sm font-semibold uppercase tracking-wider"
         >
-          Acceder a CONTRATADO por 247€ + IVA
+          Acceder a CONTRATADO
         </StarButton>
       </motion.div>
     </section>
