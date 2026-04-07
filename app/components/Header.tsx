@@ -20,7 +20,7 @@ export default function Header() {
           margin: '0 auto',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between'
+          justifyContent: 'flex-start'
         }}
       >
         {/* Logo */}
@@ -52,30 +52,6 @@ export default function Header() {
           }}>
             CONTRATADO
           </span>
-        </div>
-
-        {/* Nav Links */}
-        <div style={{
-          display: 'flex',
-          gap: '32px'
-        }}>
-          {['Módulos', 'Precios', 'Contacto'].map((item) => (
-            <motion.a
-              key={item}
-              whileHover={{ color: '#FF9062' }}
-              href="#"
-              style={{
-                fontSize: '12px',
-                fontWeight: 600,
-                color: '#ADAAAA',
-                letterSpacing: '0.05em',
-                textDecoration: 'none',
-                transition: 'color 0.3s ease'
-              }}
-            >
-              {item}
-            </motion.a>
-          ))}
         </div>
       </motion.div>
     </header>
