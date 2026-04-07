@@ -1,25 +1,24 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { StarButton } from './ui/star-button';
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.08,
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 8 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5 },
+    transition: { duration: 0.6 },
   },
 };
 
@@ -33,24 +32,26 @@ export default function Hero() {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      overflow: 'hidden',
-      backgroundColor: '#0e0e0e',
-      paddingTop: '100px',
-      paddingBottom: '80px'
+      paddingTop: '120px',
+      paddingBottom: '120px',
+      background: '#0E0E0E',
+      overflow: 'hidden'
     }}>
-      {/* Refined background */}
+      {/* Kinetic Background Layer */}
       <div style={{
         position: 'absolute',
         top: '0',
-        left: '0',
-        right: '0',
-        bottom: '0',
-        background: 'linear-gradient(to bottom, rgba(255, 144, 98, 0.03) 0%, rgba(14, 14, 14, 0) 40%)',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '1000px',
+        height: '600px',
+        background: 'radial-gradient(circle, rgba(255, 144, 98, 0.1) 0%, rgba(255, 144, 98, 0) 70%)',
+        filter: 'blur(80px)',
         zIndex: 0,
         pointerEvents: 'none'
       }} />
 
-      {/* Content container */}
+      {/* Content Container */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -59,7 +60,7 @@ export default function Hero() {
           position: 'relative',
           zIndex: 10,
           width: '100%',
-          maxWidth: '900px',
+          maxWidth: '1000px',
           paddingLeft: '24px',
           paddingRight: '24px',
           display: 'flex',
@@ -68,40 +69,58 @@ export default function Hero() {
           textAlign: 'center'
         }}
       >
-        {/* Eyebrow text */}
-        <motion.span
+        {/* Eyebrow Badge */}
+        <motion.div
           variants={itemVariants}
           style={{
-            fontSize: '12px',
-            fontWeight: 500,
-            color: '#ff9062',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            fontFamily: 'IBM Plex Mono, monospace',
-            marginBottom: '20px',
-            lineHeight: '1'
+            display: 'inline-block',
+            marginBottom: '32px'
           }}
         >
-          El Sistema para Candidatos Data
-        </motion.span>
+          <div style={{
+            padding: '8px 16px',
+            borderRadius: '24px',
+            background: 'rgba(255, 144, 98, 0.1)',
+            border: '1px solid rgba(255, 144, 98, 0.2)',
+            backdropFilter: 'blur(10px)'
+          }}>
+            <span style={{
+              fontSize: '11px',
+              fontWeight: 700,
+              color: '#FF9062',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase'
+            }}>
+              ✨ Candidato Invisible → Contratable
+            </span>
+          </div>
+        </motion.div>
 
-        {/* Main heading - Instrument Serif for distinctive editorial feel */}
+        {/* Hero Headline - AGGRESSIVE SCALE */}
         <motion.h1
           variants={itemVariants}
           style={{
-            fontSize: 'clamp(48px, 8vw, 88px)',
-            fontFamily: "'Instrument Serif', Georgia, serif",
-            fontWeight: 400,
-            lineHeight: '1.15',
-            letterSpacing: '-0.01em',
+            fontSize: 'clamp(48px, 10vw, 96px)',
+            fontWeight: 700,
+            lineHeight: 1.1,
+            letterSpacing: '-0.02em',
             color: '#ffffff',
             marginBottom: '24px',
             marginTop: '0'
           }}
         >
-          Más de 5.000 empleos data
+          Más de 5.000
           <br />
-          <span style={{ color: '#ff9062' }}>sin cubrir en España</span>
+          empleos data
+          <br />
+          <span style={{
+            background: 'linear-gradient(135deg, #FE5F00 0%, #FF9062 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
+            sin cubrir en España
+          </span>
         </motion.h1>
 
         {/* Subheading */}
@@ -110,41 +129,82 @@ export default function Hero() {
           style={{
             fontSize: '16px',
             fontWeight: 400,
-            color: '#d0cdcd',
-            lineHeight: '1.7',
-            maxWidth: '620px',
-            marginBottom: '40px',
+            color: '#ADAAAA',
+            lineHeight: 1.8,
+            maxWidth: '680px',
+            marginBottom: '60px',
             marginTop: '0'
           }}
         >
           Pero la mayoría de candidatos no recibe ni una llamada. Descubre el sistema que puede llevarte de candidato invisible a profesional deseado en 45 días.
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons - with gradient and neon glow */}
         <motion.div
           variants={itemVariants}
           style={{
             display: 'flex',
-            gap: '16px',
+            gap: '20px',
             justifyContent: 'center',
             flexWrap: 'wrap',
             width: '100%'
           }}
         >
-          <StarButton
-            lightColor="#ff9062"
-            backgroundColor="#fe5f00"
-            className="px-8 py-3 text-sm font-semibold uppercase tracking-wider"
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            style={{
+              padding: '16px 40px',
+              borderRadius: '16px',
+              background: 'linear-gradient(135deg, #FE5F00 0%, #FF9062 100%)',
+              color: '#ffffff',
+              border: 'none',
+              fontSize: '14px',
+              fontWeight: 700,
+              letterSpacing: '0.05em',
+              textTransform: 'uppercase',
+              cursor: 'pointer',
+              filter: 'drop-shadow(0 0 12px rgba(254, 95, 0, 0.4))',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.filter = 'drop-shadow(0 0 20px rgba(254, 95, 0, 0.6))';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.filter = 'drop-shadow(0 0 12px rgba(254, 95, 0, 0.4))';
+            }}
           >
             Acceder al Sistema
-          </StarButton>
-          <StarButton
-            lightColor="#adaaaa"
-            backgroundColor="#1a1919"
-            className="px-8 py-3 text-sm font-semibold uppercase tracking-wider subtle-border"
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            style={{
+              padding: '16px 40px',
+              borderRadius: '16px',
+              background: 'rgba(19, 19, 19, 0.8)',
+              color: '#FF9062',
+              border: '1px solid rgba(255, 144, 98, 0.2)',
+              backdropFilter: 'blur(10px)',
+              fontSize: '14px',
+              fontWeight: 700,
+              letterSpacing: '0.05em',
+              textTransform: 'uppercase',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(255, 144, 98, 0.4)';
+              e.currentTarget.style.background = 'rgba(19, 19, 19, 1)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(255, 144, 98, 0.2)';
+              e.currentTarget.style.background = 'rgba(19, 19, 19, 0.8)';
+            }}
           >
             Ver Casos de Éxito
-          </StarButton>
+          </motion.button>
         </motion.div>
       </motion.div>
     </section>

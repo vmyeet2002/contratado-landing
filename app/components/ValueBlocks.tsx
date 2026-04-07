@@ -6,17 +6,17 @@ const values = [
   {
     icon: 'trending_up',
     title: 'Hay Trabajo',
-    description: 'En España hay más de 5.000 puestos data sin cubrir. El reto real es DESTACAR frente al resto de candidatos.',
+    description: 'En España hay más de 5.000 puestos data sin cubrir. El reto real es DESTACAR.',
   },
   {
     icon: 'star',
     title: 'Portfolio "WOW"',
-    description: 'Un portfolio excelente te vuelve contratable aunque seas junior. Casos que impresionan a los hiring managers.',
+    description: 'Un portfolio excelente te vuelve contratable aunque seas junior.',
   },
   {
     icon: 'check_circle',
     title: 'Domina el Proceso',
-    description: 'Conoce los secretos de los procesos de selección. Desde el CV hasta la negociación salarial.',
+    description: 'Conoce los secretos de los procesos de selección.',
   },
 ];
 
@@ -25,14 +25,14 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.12,
       delayChildren: 0.05,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
@@ -43,47 +43,49 @@ const itemVariants = {
 export default function ValueBlocks() {
   return (
     <section style={{
-      padding: '80px 24px',
-      backgroundColor: '#0e0e0e',
-      width: '100%'
+      padding: '100px 24px',
+      background: '#0E0E0E',
+      width: '100%',
+      position: 'relative'
     }}>
       <div style={{
-        maxWidth: '1000px',
+        maxWidth: '1100px',
         margin: '0 auto'
       }}>
+        {/* Section Title */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           style={{
-            marginBottom: '60px',
+            marginBottom: '80px',
             textAlign: 'center'
           }}
         >
           <h2 style={{
-            fontSize: 'clamp(32px, 5vw, 48px)',
-            fontFamily: "'Instrument Serif', Georgia, serif",
-            fontWeight: 400,
+            fontSize: 'clamp(40px, 6vw, 56px)',
+            fontWeight: 700,
             color: '#ffffff',
-            letterSpacing: '-0.01em',
-            lineHeight: '1.2',
+            letterSpacing: '-0.02em',
+            lineHeight: 1.2,
             marginBottom: '12px'
           }}>
-            Los 3 Elementos Clave
+            Los 3 Elementos
           </h2>
           <p style={{
             fontSize: '14px',
-            color: '#adaaaa',
-            fontWeight: 400,
-            letterSpacing: '0.05em',
+            color: '#FF9062',
+            fontWeight: 600,
+            letterSpacing: '0.08em',
             textTransform: 'uppercase',
-            fontFamily: 'IBM Plex Mono, monospace'
+            marginTop: '0'
           }}>
-            Del Éxito
+            Clave del Éxito
           </p>
         </motion.div>
 
+        {/* Cards Grid with Overlapping */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -91,65 +93,69 @@ export default function ValueBlocks() {
           viewport={{ once: true, margin: '-50px' }}
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '24px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '24px',
+            position: 'relative'
           }}
         >
           {values.map((value) => (
             <motion.div
               key={value.title}
               variants={itemVariants}
-              whileHover={{
-                y: -4,
-                transition: { duration: 0.3, ease: 'easeOut' }
-              }}
+              whileHover={{ y: -8 }}
               style={{
-                padding: '32px',
-                backgroundColor: 'rgba(26, 25, 25, 0.4)',
-                border: '1px solid rgba(255, 255, 255, 0.06)',
-                borderRadius: '8px',
-                transition: 'all 0.3s ease',
-                cursor: 'pointer',
+                padding: '40px 32px',
+                background: '#1A1919',
+                borderRadius: '12px',
+                border: '1px solid rgba(73, 72, 71, 0.15)',
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#262626';
+                e.currentTarget.style.borderColor = 'rgba(255, 144, 98, 0.2)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = '#1A1919';
+                e.currentTarget.style.borderColor = 'rgba(73, 72, 71, 0.15)';
               }}
             >
-              {/* Subtle border animation on hover */}
+              {/* Subtle corner accent */}
               <div style={{
                 position: 'absolute',
-                inset: 0,
-                borderRadius: '8px',
-                border: '1px solid rgba(255, 144, 98, 0)',
-                transition: 'border-color 0.3s ease'
-              }}
-                onMouseEnter={(e) => e.currentTarget.style.borderColor = 'rgba(255, 144, 98, 0.2)'}
-                onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255, 144, 98, 0)'}
-              />
+                top: 0,
+                right: 0,
+                width: '80px',
+                height: '80px',
+                background: 'linear-gradient(135deg, rgba(255, 144, 98, 0.05) 0%, transparent 100%)',
+                borderRadius: '0 12px 0 80px',
+                pointerEvents: 'none'
+              }} />
 
               <motion.span
                 className="material-symbols-outlined"
+                whileHover={{ scale: 1.2, rotate: 8 }}
                 style={{
-                  fontSize: '40px',
-                  color: '#ff9062',
-                  marginBottom: '16px',
+                  fontSize: '44px',
+                  color: '#FF9062',
+                  marginBottom: '20px',
                   display: 'block',
                   position: 'relative',
                   zIndex: 1
                 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3 }}
               >
                 {value.icon}
               </motion.span>
 
               <h3 style={{
-                fontSize: '18px',
-                fontFamily: "'Instrument Serif', Georgia, serif",
-                fontWeight: 400,
+                fontSize: '20px',
+                fontWeight: 700,
                 color: '#ffffff',
                 marginBottom: '12px',
                 marginTop: '0',
-                letterSpacing: '-0.005em',
+                letterSpacing: '-0.01em',
                 position: 'relative',
                 zIndex: 1
               }}>
@@ -157,8 +163,8 @@ export default function ValueBlocks() {
               </h3>
 
               <p style={{
-                fontSize: '13px',
-                color: '#adaaaa',
+                fontSize: '14px',
+                color: '#ADAAAA',
                 lineHeight: 1.7,
                 marginBottom: '0',
                 marginTop: '0',

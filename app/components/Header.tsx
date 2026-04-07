@@ -4,11 +4,13 @@ import { motion } from 'framer-motion';
 
 export default function Header() {
   return (
-    <header className="w-full fixed top-0 z-50 subtle-border" style={{
-      backdropFilter: 'blur(8px)',
-      backgroundColor: 'rgba(14, 14, 14, 0.92)',
-      padding: '12px 24px'
-    }}>
+    <header
+      className="w-full fixed top-0 z-50 glass-morphism-nav"
+      style={{
+        borderBottom: '1px solid rgba(73, 72, 71, 0.15)',
+        padding: '16px 24px'
+      }}
+    >
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -18,37 +20,63 @@ export default function Header() {
           margin: '0 auto',
           display: 'flex',
           alignItems: 'center',
-          gap: '10px'
+          justifyContent: 'space-between'
         }}
       >
-        {/* Logo mark */}
-        <div style={{
-          width: '26px',
-          height: '26px',
-          backgroundColor: '#ff9062',
-          borderRadius: '4px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '14px',
-          fontWeight: 600,
-          color: '#ffffff',
-          letterSpacing: '0.02em'
-        }}>
-          C
+        {/* Logo */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <motion.div
+            whileHover={{ scale: 1.08 }}
+            style={{
+              width: '32px',
+              height: '32px',
+              borderRadius: '8px',
+              background: 'linear-gradient(135deg, #FE5F00 0%, #FF9062 100%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '16px',
+              fontWeight: 700,
+              color: '#ffffff',
+              cursor: 'pointer'
+            }}
+          >
+            C
+          </motion.div>
+          <span style={{
+            fontSize: '13px',
+            fontWeight: 700,
+            color: '#ffffff',
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase'
+          }}>
+            CONTRATADO
+          </span>
         </div>
-        {/* Logo text */}
-        <span style={{
-          fontSize: '12px',
-          fontWeight: 600,
-          color: '#ffffff',
-          letterSpacing: '0.07em',
-          textTransform: 'uppercase',
-          lineHeight: '1',
-          fontFamily: 'IBM Plex Mono, monospace'
+
+        {/* Nav Links */}
+        <div style={{
+          display: 'flex',
+          gap: '32px'
         }}>
-          CONTRATADO
-        </span>
+          {['Módulos', 'Precios', 'Contacto'].map((item) => (
+            <motion.a
+              key={item}
+              whileHover={{ color: '#FF9062' }}
+              href="#"
+              style={{
+                fontSize: '12px',
+                fontWeight: 600,
+                color: '#ADAAAA',
+                letterSpacing: '0.05em',
+                textDecoration: 'none',
+                transition: 'color 0.3s ease'
+              }}
+            >
+              {item}
+            </motion.a>
+          ))}
+        </div>
       </motion.div>
     </header>
   );

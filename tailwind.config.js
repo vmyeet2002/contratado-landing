@@ -6,22 +6,26 @@ export default {
   theme: {
     extend: {
       colors: {
-        /* Primary accent - strategic orange */
-        primary: '#ff9062',
-        'primary-dim': '#fe5f00',
+        /* Primary (Neon Orange) - High-Velocity Core */
+        primary: '#FF9062',
+        'primary-fixed-dim': '#FE5F00',
+        'primary-container': '#FF793E',
 
-        /* Neutrals - refined grayscale */
-        'surface': '#0e0e0e',
-        'surface-subtle': '#0f0f0f',
-        'surface-container': '#1a1919',
+        /* Surface Foundation - Black Hole Philosophy */
+        'surface': '#0E0E0E',
+        'surface-container-lowest': '#000000',
         'surface-container-low': '#131313',
-        'surface-container-high': '#201f1f',
+        'surface-container': '#1A1919',
+        'surface-container-high': '#201F1F',
         'surface-container-highest': '#262626',
-        'text-primary': '#ffffff',
-        'text-secondary': '#d0cdcd',
-        'text-tertiary': '#adaaaa',
-        'border-soft': '#2a2a2a',
-        'border-softer': 'rgba(255, 255, 255, 0.08)',
+
+        /* Text Tones */
+        'on-surface': '#FFFFFF',
+        'on-surface-variant': '#ADAAAA',
+        'outline-variant': '#494847',
+
+        /* Tertiary Accent */
+        tertiary: '#FFBD59',
       },
       fontFamily: {
         display: ['Instrument Serif', 'Georgia', 'serif'],
